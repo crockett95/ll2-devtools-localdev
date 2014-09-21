@@ -1,0 +1,350 @@
+Dev Tools & Local Development
+=============================
+
+### Lunch & Learn Training
+
+Steve Crockett, Web Developer
+
+Topics
+------
+
+-   Dev Tools
+
+-   Local Development
+
+Dev Tools
+=========
+
+What are Dev Tools?
+-------------------
+
+The developer tools are tools included with a browser for front-end web
+development. They include:
+
+-   Live DOM with editing capabilities
+
+-   Javascript console
+
+-   Network profiler
+
+-   Style editor
+
+-   Debugger tools
+
+-   Resource viewer/editor
+
+In most cases these tools are also extensible, and extra functionality can be
+added.
+
+Where are the Dev Tools in my browser?
+--------------------------------------
+
+-   IE \< 8 does *not* have dev tools - Firebug Lite works sometimes
+
+-   IE 8-11 - `F12`
+
+-   Chrome, Firefox, Opera, Safari:
+
+    -   Windows - `Ctrl + Shift + I`
+
+    -   Mac - `Cmd + Opt + I`
+
+-   All (IE \> 8 and other major browsers) - Right click and “Inspect Element”
+
+How to use Dev Tools
+--------------------
+
+-   Hovering or selecting elements allows you to see layout in page
+
+-   Selecting an element shows styles being applied
+
+-   Add/change elements or attributes live in the page
+
+-   Edit/copy HTML
+
+How to use Dev Tools (cont.)
+----------------------------
+
+-   Run Javascript straight in the console
+
+-   View Javascript debugging messages
+
+    -   console.log
+
+    -   console.warn
+
+    -   errors
+
+How to use Dev Tools (cont.)
+----------------------------
+
+-   View Network loading
+
+    -   Time
+
+    -   Actual files
+
+-   Review resources
+
+-   Profiling
+
+Learn more
+----------
+
+[Discover Dev Tools][1] by Code School
+
+[1]: <http://discover-devtools.codeschool.com/>
+
+Local Development
+=================
+
+What is it?
+-----------
+
+A “local development environment” for web development means a set up of server
+software on your local machine or on a virtual machine running on your local
+machine, rather than just relying on a dedicated server of some kind.
+
+Why do I need it? Can’t I just view the files without a server?
+---------------------------------------------------------------
+
+No, you can’t.
+
+1.  Server software can perform logic on requests and responses that your
+    computer won’t perform when just viewing a file (`file://`) in the browser
+
+2.  AJAX requests are not allowed without a server. This is a security measure
+    in every browser
+
+Why do I need it? Can’t I just upload files to a staging or dev server after I edit them? 
+------------------------------------------------------------------------------------------
+
+No.
+
+What happens when you’re working on a new feature, while someone else needs to
+use the server to test a hotfix, and a third person is working on a redesign?
+
+What if your feature is incomplete, and will require multiple days/weeks of
+work?
+
+Okay, I admit I need it. Now what?
+----------------------------------
+
+1.  Install a stack. This is the easiest way to get all the basic pieces that
+    you’ll need, already configured to work together.
+
+2.  Set up a `VirtualHost` for your project
+
+3.  Configure the host to point to your machine
+
+4.  Install and set up your project
+
+5.  Start developing files locally, and see them working
+
+6.  Use Git to version the project so others can do the same
+
+The Pieces of the Stack
+-----------------------
+
+The XAMP stack (LAMP, MAMP, WAMP). Stands for OS name, “Apache, MySQL, PHP”
+
+-   Apache - The most popular web software. Extremely configurable and very
+    stable. Not always the fastest, but probably the easiest to use. Open
+    source.
+
+    -   `.htaccess`
+
+-   MySQL - Probably the most common database for web applications. Wordpress
+    uses this (so did Expression Engine). Open source version available.
+
+-   PHP - Interpreted language developed for the web. Open source.
+
+What is a `VirtualHost`?
+------------------------
+
+Server software can perform logic. When your server gets a request on the port
+that the server is listening on, the server reads the request and sends a
+response, based on its configuration.
+
+1.  Looks at the port
+
+2.  Looks at the hostname being requested
+
+3.  Opens the directory registered for this hostname
+
+4.  Serves the request
+
+A `VirtualHost` is a mapping of a hostname to a directory, other than the
+default configuration. Allows you to serve multiple sites from the same server
+
+How to set up a `VirtualHost`
+-----------------------------
+
+**Disclaimer: ***I am not an Apache expert. I only know just enough to get by.
+These configurations are probably against best practices, but they work.*
+
+In your Apache server configuration file () add the following:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<VirtualHost *:80>
+    DocumentRoot "C:/YOUR_PROJECT_DIRECTORY"
+    ServerName your.dev_domain.com
+    <Directory "C:/YOUR_PROJECT_DIRECTORY">
+        AllowOveride All
+        Order Allow,Deny
+        Allow from all
+        Require all granted
+    </Directory>
+</VirtualHost>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Configure it as needed
+
+Configure the `hosts` file
+--------------------------
+
+The `hosts` file is the typical way to do this. You can add an entry there.
+
+Your machine is *always* available at `127.0.0.1`.
+
+Example
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+my-project.dev    127.0.0.1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A better way: `xip.io`
+----------------------
+
+Changing the `hosts` file can be a pain. Enter `xip.io`:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[anything here].[the IP it should point to].xip.io
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Simpler way to set up a host. The `[anything here]` portion can be your unique
+identifier.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+rmcp.127.0.0.1.xip.io
+rmcp.192.168.1.73.xip.io
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+No set up on this side, just use it.
+
+Database Set-up
+---------------
+
+Most stacks include phpMyAdmin: a web interface for working with MySQL
+databases.
+
+Navigate to your server stack’s start page and click the link.
+
+You will need to know your credentials.
+
+*For local development it’s usually okay to run things as root, but don’t do
+this in production environments*
+
+Just Develop
+------------
+
+You can now work on files locally, and see how the web will render them.
+
+Keep in mind that some features may not be available on your production server,
+so check if there’s a question (PHP modules and new features).
+
+Other tools and toys to be aware of:
+------------------------------------
+
+-   [Vagrant][2] - tool for setting up a virtual machine based on a config
+    (shareable environment)
+
+    [2]: <http://vagrantup.com>
+
+-   LiveReload - JS tool to automatically watch changes on files and reload
+    pages
+
+-   Other servers:
+
+    -   Local Ruby
+
+    -   NodeJS
+
+    -   Python
+
+Questions?
+==========
+
+Practice
+========
+
+Discover DevTools course
+------------------------
+
+Complete the free [Discover DevTools][3] course from Google and Code School
+
+[3]: <http://discover-devtools.codeschool.com/>
+
+Read the `xip.io` site
+----------------------
+
+Go to [xip.io][4] and read up.
+
+[4]: <http://xip.ip>
+
+Set up a Wordpress Site
+-----------------------
+
+See how you can set up your own working Wordpress site on your machine
+
+1.  Install a [WAMP stack][5] from Bitnami
+
+    [5]: <https://bitnami.com/stack/wamp>
+
+2.  Set up a `VirtualHost` for the to which directory you would like to install
+    with a `ServerName` of `my-wordpress.127.0.0.1.xip.io`
+
+3.  Add a database via the phpMyAdmin interface
+
+4.  Install Wordpress to your new site
+
+5.  Install a new theme, some plugins, etc.
+
+6.  Make a few blog posts and add pages
+
+Set up a basic PHP site
+-----------------------
+
+See how easy it is to develop when the site is hosted locally. Here’s [a sample
+file][6].
+
+[6]: <https://gist.github.com/crockett95/613ea398b06df927331a>
+
+1.  Clone your repository from last week, and set up a new remote for it (remove
+    the original remote from the clone)
+
+2.  Create a new site with a `VirtualHost` at `my-php-site.127.0.0.1.xip.io`
+    pointed at a that site
+
+3.  Add a `date.php` file that shows the current date and time (at page load)
+    using the php `date()` function ([reference][7])
+
+    [7]: <http://lmgtfy.com/?q=php+date>
+
+4.  Link this page back and forth with your `index.html` file from last week
+
+5.  Add your CSS and JavaScript from last week to `date.php`
+
+6.  Try opening the `date.php` in your browser as a file, to see the difference
+
+7.  Commit your changes as needed and push to Github.
+
+Extra Credit
+------------
+
+1.  Research `ServerAlias` directive for Apache and set up an alias for your PHP
+    site using your network IP. Have someone else look at it from their
+    computer.
+
+2.  Research jQuery’s AJAX methods, and add an AJAX call from `index.html` to
+    some JSON. Then log the response to the console and review it.

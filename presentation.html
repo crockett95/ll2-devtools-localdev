@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="http://www.texts.io/">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/reveal.min.css"/>
+<link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/solarized.css" id="theme">
+<link rel="stylesheet" media="print" href="http://lab.hakim.se/reveal-js/css/print/pdf.css" />
+<!--[if lt IE 9]>
+<script src="http://lab.hakim.se/reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+<script src="http://lab.hakim.se/reveal-js/js/reveal.min.js"></script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<section><section class="slide"><div><h1>Dev Tools &amp; Local Development</h1><h3>Lunch &amp; Learn Training</h3><p>Steve Crockett, Web Developer</p></div></section>
+
+<section class="slide"><div><h2>Topics</h2><ul>
+<li>
+<p>Dev Tools</p>
+</li><li>
+<p>Local Development</p>
+</li>
+</ul></div></section></section>
+<section>
+<section class="slide"><div><h1>Dev Tools</h1></div></section>
+
+<section class="slide"><div><h2>What are Dev Tools?</h2><p>The developer tools are tools included with a browser for front-end web development. They include:</p><ul>
+<li>
+<p>Live DOM with editing capabilities</p>
+</li><li>
+<p>Javascript console</p>
+</li><li>
+<p>Network profiler</p>
+</li><li>
+<p>Style editor</p>
+</li><li>
+<p>Debugger tools</p>
+</li><li>
+<p>Resource viewer/editor</p>
+</li>
+</ul><p>In most cases these tools are also extensible, and extra functionality can be added.</p></div></section>
+
+<section class="slide"><div><h2>Where are the Dev Tools in my browser?</h2><ul>
+<li>
+<p>IE &lt; 8 does <em>not</em> have dev tools - Firebug Lite works sometimes</p>
+</li><li>
+<p>IE 8-11 - <code>F12</code></p>
+</li><li>
+<p>Chrome, Firefox, Opera, Safari:</p><ul>
+<li>
+<p>Windows - <code>Ctrl + Shift + I</code></p>
+</li><li>
+<p>Mac - <code>Cmd + Opt + I</code></p>
+</li>
+</ul>
+</li><li>
+<p>All (IE &gt; 8 and other major browsers) - Right click and “Inspect Element”</p>
+</li>
+</ul></div></section>
+
+<section class="slide"><div><h2>How to use Dev Tools</h2><ul>
+<li>
+<p>Hovering or selecting elements allows you to see layout in page</p>
+</li><li>
+<p>Selecting an element shows styles being applied</p>
+</li><li>
+<p>Add/change elements or attributes live in the page</p>
+</li><li>
+<p>Edit/copy HTML</p>
+</li>
+</ul></div></section>
+
+<section class="slide"><div><h2>How to use Dev Tools (cont.)</h2><ul>
+<li>
+<p>Run Javascript straight in the console</p>
+</li><li>
+<p>View Javascript debugging messages</p><ul>
+<li>
+<p>console.log</p>
+</li><li>
+<p>console.warn</p>
+</li><li>
+<p>errors</p>
+</li>
+</ul>
+</li>
+</ul></div></section>
+
+<section class="slide"><div><h2>How to use Dev Tools (cont.)</h2><ul>
+<li>
+<p>View Network loading</p><ul>
+<li>
+<p>Time</p>
+</li><li>
+<p>Actual files</p>
+</li>
+</ul>
+</li><li>
+<p>Review resources</p>
+</li><li>
+<p>Profiling</p>
+</li>
+</ul></div></section>
+
+<section class="slide"><div><h2>Learn more</h2><p><a href="http://discover-devtools.codeschool.com/">Discover Dev Tools</a> by Code School</p></div></section></section>
+
+<section><section class="slide"><div><h1>Local Development</h1></div></section>
+
+<section class="slide"><div><h2>What is it?</h2><p>A “local development environment” for web development means a set up of server software on your local machine or on a virtual machine running on your local machine, rather than just relying on a dedicated server of some kind.</p></div></section>
+
+<section class="slide"><div><h2>Why do I need it? Can’t I just view the files without a server?</h2><p>No, you can’t.</p><ol>
+<li>
+<p>Server software can perform logic on requests and responses that your computer won’t perform when just viewing a file (<code>file://</code>) in the browser</p>
+</li><li>
+<p>AJAX requests are not allowed without a server. This is a security measure in every browser</p>
+</li>
+</ol></div></section>
+
+<section class="slide"><div><h2>Why do I need it? Can’t I just upload files to a staging or dev server after I edit them? </h2><p>No.</p><p>What happens when you’re working on a new feature, while someone else needs to use the server to test a hotfix, and a third person is working on a redesign?</p><p>What if your feature is incomplete, and will require multiple days/weeks of work?</p></div></section>
+
+<section class="slide"><div><h2>Okay, I admit I need it. Now what?</h2><ol>
+<li>
+<p>Install a stack. This is the easiest way to get all the basic pieces that you’ll need, already configured to work together.</p>
+</li><li>
+<p>Set up a <code>VirtualHost</code> for your project</p>
+</li><li>
+<p>Configure the host to point to your machine</p>
+</li><li>
+<p>Install and set up your project</p>
+</li><li>
+<p>Start developing files locally, and see them working</p>
+</li><li>
+<p>Use Git to version the project so others can do the same</p>
+</li>
+</ol></div></section>
+
+<section class="slide"><div><h2>The Pieces of the Stack</h2><p>The XAMP stack (LAMP, MAMP, WAMP). Stands for OS name, “Apache, MySQL, PHP”</p><ul>
+<li>
+<p>Apache - The most popular web software. Extremely configurable and very stable. Not always the fastest, but probably the easiest to use. Open source.</p><ul>
+<li>
+<p><code>.htaccess</code></p>
+</li>
+</ul>
+</li><li>
+<p>MySQL - Probably the most common database for web applications. Wordpress uses this (so did Expression Engine). Open source version available.</p>
+</li><li>
+<p>PHP - Interpreted language developed for the web. Open source.</p>
+</li>
+</ul></div></section>
+
+<section class="slide"><div><h2>What is a <code>VirtualHost</code>?</h2><p>Server software can perform logic. When your server gets a request on the port that the server is listening on, the server reads the request and sends a response, based on its configuration.</p><ol>
+<li>
+<p>Looks at the port</p>
+</li><li>
+<p>Looks at the hostname being requested</p>
+</li><li>
+<p>Opens the directory registered for this hostname</p>
+</li><li>
+<p>Serves the request</p>
+</li>
+</ol><p>A <code>VirtualHost</code> is a mapping of a hostname to a directory, other than the default configuration. Allows you to serve multiple sites from the same server</p></div></section>
+
+<section class="slide"><div><h2>How to set up a <code>VirtualHost</code></h2><p><strong>Disclaimer: </strong><em>I am not an Apache expert. I only know just enough to get by. These configurations are probably against best practices, but they work.</em></p><p>In your Apache server configuration file () add the following:</p><pre><code>&lt;VirtualHost *:80&gt;
+    DocumentRoot "C:/YOUR_PROJECT_DIRECTORY"
+    ServerName your.dev_domain.com
+    &lt;Directory "C:/YOUR_PROJECT_DIRECTORY"&gt;
+        AllowOveride All
+        Order Allow,Deny
+        Allow from all
+        Require all granted
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</code></pre><p>Configure it as needed</p></div></section>
+
+<section class="slide"><div><h2>Configure the <code>hosts</code> file</h2><p>The <code>hosts</code> file is the typical way to do this. You can add an entry there.</p><p>Your machine is <em>always</em> available at <code>127.0.0.1</code>.</p><p>Example</p><pre><code>my-project.dev    127.0.0.1
+</code></pre></div></section>
+
+<section class="slide"><div><h2>A better way: <code>xip.io</code></h2><p>Changing the <code>hosts</code> file can be a pain. Enter <code>xip.io</code>:</p><pre><code>[anything here].[the IP it should point to].xip.io
+</code></pre><p>Simpler way to set up a host. The <code>[anything here]</code> portion can be your unique identifier.</p><pre><code>rmcp.127.0.0.1.xip.io
+rmcp.192.168.1.73.xip.io
+</code></pre><p>No set up on this side, just use it.</p></div></section>
+
+<section class="slide"><div><h2>Database Set-up</h2><p>Most stacks include phpMyAdmin: a web interface for working with MySQL databases.</p><p>Navigate to your server stack’s start page and click the link.</p><p>You will need to know your credentials.</p><p><em>For local development it’s usually okay to run things as root, but don’t do this in production environments</em></p></div></section>
+
+<section class="slide"><div><h2>Just Develop</h2><p>You can now work on files locally, and see how the web will render them.</p><p>Keep in mind that some features may not be available on your production server, so check if there’s a question (PHP modules and new features).</p></div></section>
+
+<section class="slide"><div><h2>Other tools and toys to be aware of:</h2><ul>
+<li>
+<p><a href="http://vagrantup.com">Vagrant</a> - tool for setting up a virtual machine based on a config (shareable environment)</p>
+</li><li>
+<p>LiveReload - JS tool to automatically watch changes on files and reload pages</p>
+</li><li>
+<p>Other servers:</p><ul>
+<li>
+<p>Local Ruby</p>
+</li><li>
+<p>NodeJS</p>
+</li><li>
+<p>Python</p>
+</li>
+</ul>
+</li>
+</ul></div></section></section>
+
+<section class="slide"><div><h1>Questions?</h1></div></section>
+
+<section><section class="slide"><div><h1>Practice</h1></div></section>
+
+<section class="slide"><div><h2>Discover DevTools course</h2><p>Complete the free <a href="http://discover-devtools.codeschool.com/">Discover DevTools</a> course from Google and Code School</p></div></section>
+
+<section class="slide"><div><h2>Read the <code>xip.io</code> site</h2><p>Go to <a href="http://xip.ip">xip.io</a> and read up.</p></div></section>
+
+<section class="slide"><div><h2>Set up a Wordpress Site</h2><p>See how you can set up your own working Wordpress site on your machine</p><ol>
+<li>
+<p>Install a <a href="https://bitnami.com/stack/wamp">WAMP stack</a> from Bitnami</p>
+</li><li>
+<p>Set up a <code>VirtualHost</code> for the to which directory you would like to install with a <code>ServerName</code> of <code>my-wordpress.127.0.0.1.xip.io</code></p>
+</li><li>
+<p>Add a database via the phpMyAdmin interface</p>
+</li><li>
+<p>Install Wordpress to your new site</p>
+</li><li>
+<p>Install a new theme, some plugins, etc.</p>
+</li><li>
+<p>Make a few blog posts and add pages</p>
+</li>
+</ol></div></section>
+
+<section class="slide"><div><h2>Set up a basic PHP site</h2><p>See how easy it is to develop when the site is hosted locally. Here’s <a href="https://gist.github.com/crockett95/613ea398b06df927331a">a sample file</a>.</p><ol>
+<li>
+<p>Clone your repository from last week, and set up a new remote for it (remove the original remote from the clone)</p>
+</li><li>
+<p>Create a new site with a <code>VirtualHost</code> at <code>my-php-site.127.0.0.1.xip.io</code> pointed at a that site</p>
+</li><li>
+<p>Add a <code>date.php</code> file that shows the current date and time (at page load) using the php <code>date()</code> function (<a href="http://lmgtfy.com/?q=php+date">reference</a>)</p>
+</li><li>
+<p>Link this page back and forth with your <code>index.html</code> file from last week</p>
+</li><li>
+<p>Add your CSS and JavaScript from last week to <code>date.php</code></p>
+</li><li>
+<p>Try opening the <code>date.php</code> in your browser as a file, to see the difference</p>
+</li><li>
+<p>Commit your changes as needed and push to Github.</p>
+</li>
+</ol></div></section>
+
+<section class="slide"><div><h2>Extra Credit</h2><ol>
+<li>
+<p>Research <code>ServerAlias</code> directive for Apache and set up an alias for your PHP site using your network IP. Have someone else look at it from their computer.</p>
+</li><li>
+<p>Research jQuery’s AJAX methods, and add an AJAX call from <code>index.html</code> to some JSON. Then log the response to the console and review it.</p>
+</li>
+</ol></div></section></section>
+
+</div>
+</div>
+<script>
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({ controls: false, history: true, transition: 'linear' });
+</script>
+</body>
+</html>
